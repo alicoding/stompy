@@ -6,6 +6,7 @@ stompy:
   links:
     - postgres
   restart: always
+  command: python /app/manage.py runserver 0:7001 
 
 nginx:
   build: ./nginx
@@ -28,3 +29,4 @@ data:
   image: busybox 
   volumes:
     - /var/lib/postgresql
+  command: "true"

@@ -1,7 +1,10 @@
 stompy:
   build: ./stompy
+  env_file: .env
   expose:
     - "7001"
+  links:
+    - postgres
   restart: always
 
 nginx:
@@ -11,3 +14,17 @@ nginx:
   ports:
     - "80:80"
   restart: always
+
+postgres:
+  restart: always
+  image: postgres:latest
+  volumes_from:
+    - data
+  ports:
+    - "5432:5432"
+
+data:
+  restart: always
+  image: busybox 
+  volumes:
+    - /var/lib/postgresql

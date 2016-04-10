@@ -1,5 +1,4 @@
 FROM python:3.5
-ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 EXPOSE 7001
 COPY ./requirements.txt ./

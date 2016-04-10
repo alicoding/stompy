@@ -1,14 +1,14 @@
 build: 
 	docker-compose build
 
-test: build
-	docker-compose run stompy sh -c "pip install coverage flake8 && flake8 . && python /app/manage.py test"
-
 up: build
 	docker-compose up
 
-migrate: build
-	docker-compose run stompy sh -c "python /app/manage.py migrate"
+test: build
+	docker-compose run app sh -c "pip install coverage flake8 && flake8 . && python /app/manage.py test"
 
-collectstatic: build
-	docker-compose run stompy sh -c "python /app/manage.py collectstatic -c --noinput"
+migrate: build
+	docker-compose run app sh -c "python /app/manage.py migrate"
+
+shell: build
+	docker-compose run app python manage.py shell 

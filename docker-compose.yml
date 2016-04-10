@@ -7,7 +7,6 @@ app:
     - postgres
   volumes:
     - ./app:/app
-  restart: always
   command: python /app/manage.py runserver 0:7001 
 
 nginx:
@@ -16,7 +15,6 @@ nginx:
     - app
   ports:
     - "80:80"
-  restart: always
 
 postgres:
   restart: always

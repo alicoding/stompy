@@ -4,5 +4,5 @@ from home.views import LandingView
 
 
 urlpatterns = [
-    url(r'^', LandingView.as_view()),
+    url(r'^', LandingView.as_view(), name='home.landing'),
 ]
